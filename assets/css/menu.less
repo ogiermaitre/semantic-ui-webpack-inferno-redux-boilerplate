@@ -1,0 +1,133 @@
+
+.navbar{
+    width: 95%!important;
+    // margin-left: 15px;
+}
+
+/******************************************************************************
+ * 
+ * TODO: This could be replaced by semantic ui default variables :
+ *      Mobile: below 768
+ *      Table: 768-991
+ *      Small Monitor: 992-1200
+ *      Large Monitor: abos 1200
+ *
+******************************************************************************/
+@phoneMaxWidth:800px;
+@tabletMaxWidth:1000px;
+@displayMaxWidth:1400px;
+
+@media only screen and (min-width: (@displayMaxWidth+1) ) {
+    .display.only,.cusTablet.only,.phone.only{
+        display:none!important;
+    }
+
+    #innerbody{
+        margin-top: 35px;
+    }
+
+}
+
+@media only screen and (max-width: @displayMaxWidth ) and (min-width: (@tabletMaxWidth+1) ){
+    .wideDisplay.only,.cusTablet.only,.phone.only{
+        display:none!important;
+    }
+
+    #innerbody > div:first-child{
+        margin-top:85px;
+    }
+}
+
+@media only screen and (max-width: @tabletMaxWidth ) and (min-width: (@phoneMaxWidth+1) ){
+    .wideDisplay.only,.display.only,.phone.only{
+        display:none!important;
+    }
+
+    #innerbody{
+        margin-top: 15px;
+    }
+
+    .cusTablet.only.only.row{
+        margin-top: 10px;
+        margin-left: 5%;
+    }
+}
+
+@media only screen and (max-width: @phoneMaxWidth ) {
+    .wideDisplay.only,.display.only,.cusTablet.only{
+        display:none!important;
+    }
+
+    #innerbody{
+        margin-top: 15px;
+    }
+
+    .ui.navbar.menu{ margin-bottom: 0px; }
+
+    .ui.vertical.navbar.menu{
+        margin-top: 0px!important;
+    }
+
+    .phone.only.row{
+        margin-top: 10px;
+        margin-left: 5%;
+    }
+
+}
+
+
+
+#example .pusher>.full.height {
+    display: -webkit-box!important;
+    display: -webkit-flex!important;
+    display: -ms-flexbox!important;
+    display: flex!important;
+    -webkit-flex-direction: row!important;
+    -ms-flex-direction: row!important;
+    flex-direction: row!important;
+}
+
+#example:not(.site) .pusher>.full.height {
+    background-color: #FFFFFF!important;
+}
+
+/* page layout */
+
+#example .full.height>.toc {
+    position: relative!important;
+    z-index: 1!important;
+    background-color: #1b1c1d!important;
+    width: 250px!important;
+    -webkit-box-flex: 0!important;
+    -webkit-flex: 0 0 auto!important;
+    -ms-flex: 0 0 auto!important;
+    flex: 0 0 auto!important;
+}
+
+#example .full.height>.toc .ui.menu {
+    border-radius: 0!important;
+    border-width: 0 1px 0 0!important;
+    box-shadow: none!important;
+    margin: 0!important;
+    width: inherit!important;
+    overflow: hidden!important;
+    will-change: transform!important;
+}
+
+#example .article {
+    -webkit-box-flex: 1!important;
+    -webkit-flex: 1 1 auto!important;
+    -ms-flex: 1 1 auto!important;
+    flex: 1 1 auto!important;
+    min-width: 0px!important;
+}
+
+
+#example .masthead>.container,
+#example .main.container,
+#example .fixed.menu>.container {
+    margin-left: 3em !important;
+    margin-right: 3em !important;
+    width: auto !important;
+    max-width: 960px !important;
+}

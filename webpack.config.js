@@ -1,0 +1,80 @@
+const path = require('path');
+const webpack = require('webpack');
+const fs = require('fs')
+
+module.exports = {
+    entry: './src/index.jsx',
+    output: {
+        path: __dirname + '/assets',
+        filename: 'bundle.js',
+        publicPath: 'http://localhost:8080/'
+    },
+    resolve: {
+        alias: {
+            semantic: path.resolve(__dirname, 'semantic/src/'),
+            jquery: path.resolve(__dirname, 'node_modules/jquery/src/jquery')
+        }
+    },
+    module: {
+        loaders: [{
+            test: /\.jsx|\.js$/,
+            loader: 'babel-loader',
+            query: {
+                presets: [
+                    'babel-preset-es2015',
+                    'babel-preset-react',
+                    'babel-preset-stage-0',
+                ].map(require.resolve),
+            }
+        },
+        {
+            test: /\.(png|gif)$/,
+            loader: 'url-loader?limit=1024&name=[name]-[hash:8].[ext]!image-webpack-loader'
+        },
+        {
+            test: /\.jpg$/,
+            loader: 'file-loader'
+        },
+        {
+            test: /\.less$/, // import css from 'foo.less';
+            use: [
+                'style-loader',
+                'css-loader',
+                'less-loader'
+            ]
+        },
+        {
+            test: /\.css$/,
+            use: ['style-loader', 'css-loader']
+        },
+        {
+            test: /\.(ttf|eot|svg|woff2?)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+            loader: 'file-loader'
+        }
+        ]
+    },
+    devServer: {
+        contentBase: './',
+        port: 8080,
+        noInfo: false,
+        hot: true,
+        inline: true,
+        proxy: {
+            '*': {
+                bypass: function (req, res, proxyOptions) {
+                    return '/assets/index.html';
+                }
+            }
+        }
+    },
+    plugins: [
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.ProvidePlugin({
+            $: 'jquery',
+            jQuery: 'jquery',
+            'global.jQuery': 'jquery',
+            'window.jQuery': 'jquery',
+            //    d3:'d3'
+        })
+    ]
+};

@@ -1,0 +1,7 @@
+{
+    "presets": [
+        ["es2015", {"loose": true, "modules": false}], "stage-2"
+
+    ],
+    "plugins": ["babel-plugin-syntax-jsx","babel-plugin-transform-es2015-destructuring","transform-es2015-parameters",["transform-object-rest-spread", { "useBuiltIns": true }], ["babel-plugin-inferno", {"imports": true}]]
+}
