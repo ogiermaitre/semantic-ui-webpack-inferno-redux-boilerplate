@@ -16,41 +16,41 @@ module.exports = {
         }
     },
     module: {
-        loaders: [{
-            test: /\.jsx|\.js$/,
-            loader: 'babel-loader',
-            query: {
-                presets: [
-                    'babel-preset-es2015',
-                    'babel-preset-react',
-                    'babel-preset-stage-0',
-                ].map(require.resolve),
+        loaders: [
+            {
+                test: /\.jsx|\.js$/,
+                exclude: /(node_modules|bower_components)/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['env']
+                    }
+                }
+            },
+            {
+                test: /\.(png|gif)$/,
+                loader: 'url-loader?limit=1024&name=[name]-[hash:8].[ext]!image-webpack-loader'
+            },
+            {
+                test: /\.jpg$/,
+                loader: 'file-loader'
+            },
+            {
+                test: /\.less$/, // import css from 'foo.less';
+                use: [
+                    'style-loader',
+                    'css-loader',
+                    'less-loader'
+                ]
+            },
+            {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader']
+            },
+            {
+                test: /\.(ttf|eot|svg|woff2?)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+                loader: 'file-loader'
             }
-        },
-        {
-            test: /\.(png|gif)$/,
-            loader: 'url-loader?limit=1024&name=[name]-[hash:8].[ext]!image-webpack-loader'
-        },
-        {
-            test: /\.jpg$/,
-            loader: 'file-loader'
-        },
-        {
-            test: /\.less$/, // import css from 'foo.less';
-            use: [
-                'style-loader',
-                'css-loader',
-                'less-loader'
-            ]
-        },
-        {
-            test: /\.css$/,
-            use: ['style-loader', 'css-loader']
-        },
-        {
-            test: /\.(ttf|eot|svg|woff2?)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-            loader: 'file-loader'
-        }
         ]
     },
     devServer: {
@@ -74,7 +74,6 @@ module.exports = {
             jQuery: 'jquery',
             'global.jQuery': 'jquery',
             'window.jQuery': 'jquery',
-            //    d3:'d3'
         })
     ]
 };

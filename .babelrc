@@ -1,7 +1,42 @@
 {
     "presets": [
-        ["es2015", {"loose": true, "modules": false}], "stage-2"
-
+        [
+            "env",
+            {
+                "loose": true,
+                "targets": {
+                    "node": "4.2"
+                }
+            }
+        ]
     ],
-    "plugins": ["babel-plugin-syntax-jsx","babel-plugin-transform-es2015-destructuring","transform-es2015-parameters",["transform-object-rest-spread", { "useBuiltIns": true }], ["babel-plugin-inferno", {"imports": true}]]
+    "plugins": [
+        "babel-plugin-syntax-jsx",
+        "babel-plugin-transform-es2015-destructuring",
+        "transform-es2015-parameters",
+        [
+            "transform-object-rest-spread",
+            {
+                "useBuiltIns": true
+            }
+        ],
+        [
+            "babel-plugin-inferno",
+            {
+                "imports": true
+            }
+        ]    ],
+    "env": {
+        "test": {
+            "plugins": [
+                "istanbul",
+                [
+                    "babel-plugin-inferno",
+                    {
+                        "imports": true
+                    }
+                ]
+            ]
+        }
+    }
 }

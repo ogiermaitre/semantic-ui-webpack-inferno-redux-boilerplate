@@ -4,8 +4,6 @@ import { Link } from 'inferno-router';
 import { connect } from 'inferno-redux'
 import classNames from 'classnames'
 
-import React from 'inferno-compat'
-
 import 'semantic/definitions/modules/sidebar';
 import 'semantic/definitions/modules/accordion';
 import 'semantic/definitions/modules/dropdown';
