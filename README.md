@@ -16,6 +16,7 @@ Currently it uses:
 ```
 npn -g gulp
 npm i
-npm i semantic-ui (if gulp install does not showed during previous step)
 node font-fix.js
+cd semantic/
+gulp build
 ```
