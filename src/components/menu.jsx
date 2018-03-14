@@ -1,15 +1,18 @@
-import Inferno from 'inferno';
+// import Inferno from 'inferno';
 import Component from 'inferno-component';
 import { Link } from 'inferno-router';
 import { connect } from 'inferno-redux'
+import { cloneVNode } from 'inferno-clone-vnode';
 import classNames from 'classnames'
+
+import { BrowserRouter, Switch, } from 'inferno-router';
 
 import 'semantic/definitions/modules/sidebar';
 import 'semantic/definitions/modules/accordion';
 import 'semantic/definitions/modules/dropdown';
 import 'semantic/definitions/modules/transition';
 
-
+import RootPage from '../pages/rootPage.jsx'
 
 import cssSemantic from 'semantic/semantic.less';
 import cssMenu from '../../assets/css/menu.less'
@@ -178,9 +181,8 @@ class SmartMenu extends Component {
 	 * @author Ogier Maitre
 	 * @date 14:24:51-16 nov. 2017 
 	 */
-	render({ child, inverted }) {		
-		const childWithProps = Inferno.cloneVNode(child, { updateTitle:this.props.updateMenuTitle,updateMenu:this.props.updatePageSpecificMenu })
-
+	render({ children, inverted,match }) {	
+		const childrenWithProps = cloneVNode(children, { updateTitle:this.props.updateMenuTitle,updateMenu:this.props.updatePageSpecificMenu })
 		return (
 			<div id="sidebarcontext">
 				<DisplayMenu menuTree={this.props.data.tree} title={this.props.data.title} inverted={inverted}/>
@@ -195,7 +197,7 @@ class SmartMenu extends Component {
 								<PhoneMenu menuTree={this.props.data.tree} title={this.props.data.title} inverted={inverted}/>
 							</div>
 							<div id="innerbody" class="ui main text" >
-								{childWithProps}
+								{childrenWithProps}
 							</div>
 						</div>
 					</div>

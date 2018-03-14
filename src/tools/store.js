@@ -37,29 +37,9 @@ const logger = store => next => action => {
 const generalMenuTree = [
     { name: 'project page', to: '/' },
     {
-      name: 'Publication', children: [
-        { name: 'Institutes 2015', to: '/institutes/2015' },
-        { name: 'Institutes 2016', to: '/institutes/2016' },
-        { name: 'Clusters 2015', to: '/clusters/2015' },
-        { name: 'Clusters 2016', to: '/clusters/2016' },
-        {
-          name: 'Institutes', children: [
-            {
-              name: '2015', children: [
-                { name: 'Architecture', to: '/laboratories/2015/IA' },
-                { name: 'Ingénierie de l’environnement', to: '/laboratories/2015/IIE' },
-                { name: 'Ingénierie civile', to: '/laboratories/2015/IIC' },
-              ]
-            },
-            {
-              name: '2016', children: [
-                { name: 'Architecture', to: '/laboratories/2016/IA' },
-                { name: 'Ingénierie de l’environnement', to: '/laboratories/2016/IIE' },
-                { name: 'Ingénierie civile', to: '/laboratories/2016/IIC' },
-              ]
-            }
-          ]
-        }
+      name: 'Pages', children: [
+        { name: 'Page 1', to: '/p1' },
+        { name: 'Page 2', to: '/p2' },
       ]
     },
   ]

@@ -3,23 +3,24 @@ import Component from 'inferno-component'
 import VersionComponent from '../components/VersionComponent.jsx'
 
 const localMenuTree = [
-    {name:'go to page 1',to:'/p1'},
-    {name:'go to page 2',to:'/p2'}
+    { name: 'go to root page', to: '/' },
+    { name: 'go to page 1', to: '/p1' }
 ]
 
-class RootPage extends Component {
+class Page2 extends Component {
     constructor(props) {
         super(props)
-        this.props.updateTitle('Root page')
+        this.props.updateTitle('Page 2')
         this.props.updateMenu(localMenuTree)
     }
     render() {
         return (
             <div>
+                <h1>Page 2</h1>
                 <VersionComponent />
             </div>
         )
     }
 }
 
-export default RootPage
+export default Page2
