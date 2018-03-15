@@ -1,11 +1,10 @@
 const path = require('path');
 const webpack = require('webpack');
-const fs = require('fs')
 
 module.exports = {
     entry: './src/index.jsx',
     output: {
-        path: __dirname + '/assets',
+        path: path.resolve(__dirname, '/assets'),
         filename: 'bundle.js',
         publicPath: 'http://localhost:8080/'
     },
@@ -22,9 +21,7 @@ module.exports = {
                 exclude: /(node_modules|bower_components)/,
                 use: {
                     loader: 'babel-loader',
-                    options: {
-                        presets: ['env']
-                    }
+                    options: { presets: ['env'] }
                 }
             },
             {
@@ -35,8 +32,9 @@ module.exports = {
                 test: /\.jpg$/,
                 loader: 'file-loader'
             },
-            {
-                test: /\.less$/, // import css from 'foo.less';
+            {   
+                // import css from 'foo.less';
+                test: /\.less$/, 
                 use: [
                     'style-loader',
                     'css-loader',
@@ -59,13 +57,7 @@ module.exports = {
         noInfo: false,
         hot: true,
         inline: true,
-        proxy: {
-            '*': {
-                bypass: function (req, res, proxyOptions) {
-                    return '/assets/index.html';
-                }
-            }
-        }
+        proxy: { '*': { bypass: () => '/assets/index.html' } }
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),

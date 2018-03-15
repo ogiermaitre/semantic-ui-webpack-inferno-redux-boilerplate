@@ -1,6 +1,5 @@
 import Component from 'inferno-component'
-
-import VersionComponent from '../components/VersionComponent.jsx'
+import { connect } from 'inferno-redux'
 
 const localMenuTree = [
     { name: 'go to root page', to: '/' },
@@ -10,17 +9,28 @@ const localMenuTree = [
 class Page2 extends Component {
     constructor(props) {
         super(props)
-        this.props.updateTitle('Page 2')
-        this.props.updateMenu(localMenuTree)
+
+        this.props.updateMenuTitle('page 2')
+        this.props.updatePageSpecificMenu(localMenuTree)
     }
+    
     render() {
         return (
             <div>
                 <h1>Page 2</h1>
-                <VersionComponent />
             </div>
         )
     }
 }
 
-export default Page2
+const mapDispatchToProps = dispatch =>
+    ({
+        updatePageSpecificMenu: menuTree => {
+            dispatch({ type: 'SET_MENU_PAGE-SPECIFIC', menuTree })
+        },
+        updateMenuTitle: title => {
+            dispatch({ type: 'SET_MENU_TITLE', title })
+        }
+    })
+
+export default connect(undefined, mapDispatchToProps)(Page2)
