@@ -18,6 +18,9 @@
     "plugins": [
         "inferno"
     ],
+    "globals": {
+        "$": true
+    },
     "rules": {
         "accessor-pairs": "error",
         "array-bracket-newline": "error",
