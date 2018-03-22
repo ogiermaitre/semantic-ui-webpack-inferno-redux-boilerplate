@@ -1,6 +1,6 @@
 /* inferno modules, for rendering and routing */
 import { render } from 'inferno';
-import { BrowserRouter, Route } from 'inferno-router';
+import { BrowserRouter, Route, Switch } from 'inferno-router';
 import createBrowserHistory from 'history/createBrowserHistory';
 
 import { Provider } from 'inferno-redux'
@@ -24,12 +24,14 @@ const browserHistory = createBrowserHistory();
 const routes = st =>
     <Provider store={st}>
         <BrowserRouter history={browserHistory}>
-            <MenuContainer>
-                <Route exact path='/' component={RootPage} />
-                <Route path='/p1' component={Page1} />
-                <Route path='/p2' component={Page2} />
-                <Route path='/pv/:variable' component={PageV} />
-            </MenuContainer>
+            <Switch>
+                <MenuContainer>
+                    <Route exact path='/' component={RootPage} />
+                    <Route path='/p1' component={Page1} />
+                    <Route path='/p2' component={Page2} />
+                    <Route path='/pv/:variable' component={PageV} />
+                </MenuContainer>
+            </Switch>
         </BrowserRouter>
     </Provider>
 
