@@ -4,8 +4,8 @@
   "description": "",
   "main": "font-fix.js",
   "scripts": {
-    "start": "webpack-dev-server --config webpack.config.js --host 0.0.0.0 --devtool source-map",
-    "build": "webpack -p --config webpack.conf.js",
+    "start": "webpack-dev-server --config webpack.config.js --mode development --host 0.0.0.0 --devtool source-map",
+    "build": "webpack -p --config webpack.conf.js --mode production",
     "lint": "eslint src"
   },
   "keywords": [],
@@ -38,8 +38,9 @@
     "semantic-ui": "^2.3.1",
     "style-loader": "^0.20.3",
     "url-loader": "^1.0.1",
-    "webpack": "^3",
-    "webpack-dev-server": "^2"
+    "webpack": "^4",
+    "webpack-cli": "^2.0.13",
+    "webpack-dev-server": "^3"
   },
   "dependencies": {
     "classnames": "^2.2.5",

@@ -7,8 +7,8 @@ Largely inspired from [atomicpages/semantic-ui-webpack2-boilerplate](https://git
 
 Currently it uses:
 - semantic-ui 2.3
-- inferno 4
-- webpack 3
+- inferno 5
+- webpack 4
 - redux 3.7.2
 - babel 6.26
 
