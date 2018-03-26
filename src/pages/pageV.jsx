@@ -18,6 +18,7 @@ class PageV extends Component {
             <div>
                 <h1>Page Variable</h1>
                 <span>{this.props.match.params.variable}</span>
+                <div style='height:1000px;width:100%'></div>
             </div>
         )
     }

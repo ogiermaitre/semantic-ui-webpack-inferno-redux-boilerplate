@@ -39,6 +39,7 @@ const generalMenuTree = [
       name: 'Pages', children: [
         { name: 'Page 1', to: '/p1' },
         { name: 'Page 2', to: '/p2' },
+        { name: 'Page v of plop', to: '/pv/plop' },
       ]
     },
   ]

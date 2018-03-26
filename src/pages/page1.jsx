@@ -17,6 +17,7 @@ class Page1 extends Component {
         return (
             <div>
                 <h1>Page 1</h1>
+                <div style='height:1000px;'></div>
             </div>
         )
     }
